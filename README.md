@@ -1,6 +1,8 @@
 # Image-Inpainting
 
-This project focuses on image inpainting, a technique used to restore missing or damaged parts of an image using deep learning models. The goal is to generate visually plausible completions for the missing regions. This model uses a context encoder GAN trained on the celebsA dataset. It uses a context encoder GAN (Generative Adversarial Network) .
+This project focuses on image inpainting, a technique used to restore missing or damaged parts of an image using deep learning models. The goal is to generate visually plausible completions for the missing regions. This model uses a context encoder GAN trained on the celebsA dataset. It uses a context encoder GAN (Generative Adversarial Network). It is deployed using Streamlit on Streamlit Community Cloud. 
+
+App Link: https://imageinpaint.streamlit.app/
 
 ## CelebsA Dataset
 The CelebA (CelebFaces Attributes) dataset is a large-scale dataset containing over 200,000 celebrity face images with rich attribute annotations. It includes 40 facial attribute labels, such as age, gender, and expressions, making it widely used for tasks like facial recognition, image generation, and inpainting.
@@ -27,9 +29,9 @@ The image inpainting model follows a deep learning-based approach to predict mis
 * **Adversarial Loss:** Ensures that the inpainted regions appear natural by penalizing unrealistic patches (performance of discriminator).
 
 * **Joint Loss Function:** Is a combination of Reconstruction Loss (L<sub>R</sub>) and Adversarial Loss (L<sub>A</sub>). In this case we use a formula that prioritises Recounstruction Loss over Adversarial Loss as we want to focus on the correct generation of features.
-          <p align="center">L = 0.9*L<sub>R</sub> + 0.1*L<sub>A</sub> </p>
+          <p align="center">L = 0.999*L<sub>R</sub> + 0.001*L<sub>A</sub> </p>
 
-* **Training:** The model is trained for 12 epochs over the training dataset, to minimise the joint loss function as described above.
+* **Training:** The model is trained for 25 epochs over the training dataset, to minimise the joint loss function as described above.
 
 * **Validation:** After each epoch the model is validated against the validation training set to check its performance on new data.
 
