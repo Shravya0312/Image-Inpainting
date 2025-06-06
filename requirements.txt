@@ -3,3 +3,4 @@ torch
 Pillow
 opencv-python
 torchvision
+streamlit_image_coordinates
